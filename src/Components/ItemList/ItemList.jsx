@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 const ItemList = ({popularMovies}) => {
 
   const settings = {
-    className: "center",
     centerMode: true,
     infinite: true,
     centerPadding: "60px",
