@@ -11,7 +11,7 @@ const ItemList = ({popularMovies}) => {
     infinite: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
       {
@@ -25,7 +25,7 @@ const ItemList = ({popularMovies}) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -49,13 +49,17 @@ const ItemList = ({popularMovies}) => {
 
 
   return (
-    <Slider  {...settings}>
+    <>
+    <h1 style={{color:'white',fontSize:'20px'}}>Popular Movies</h1>
+      <Slider  {...settings}>
      {
       popularMovies.map((movie)=>(
-      <Item key={movie.id} movie={movie} />
+      <Item  key={movie.id} movie={movie} />
       ))
     }
     </Slider>
+    </>
+  
    
   
   )

@@ -10,17 +10,15 @@ const Item = ({movie}) => {
 
   return (
      
-    <Box>
-       <Card w={{base:'180px',md:'220px'}} >
+    <Box mt='20px' ml='20px'>
      <Link to={`/detail/${movie.id}`}>   
-  <CardBody>
     <Image
+      w={{base:'150px',md:'200px'}}
+      borderRadius='lg'
       src={getImage()}
       alt='Green double couch with wooden legs'
     />
-  </CardBody>
   </Link>
-</Card>
       
      
     </Box>
