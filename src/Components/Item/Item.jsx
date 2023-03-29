@@ -1,5 +1,6 @@
 import { Box, Card, CardBody, Center, Heading, Image, Stack, WrapItem } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Item = ({movie}) => {
   const getImage = ()=>{
@@ -8,16 +9,20 @@ const Item = ({movie}) => {
   }
 
   return (
-    <Box  w='200px' h='300px' >
-      <Card maxW='sm'>
+     
+    <Box>
+       <Card w={{base:'180px',md:'220px'}} >
+     <Link to={`/detail/${movie.id}`}>   
   <CardBody>
     <Image
       src={getImage()}
       alt='Green double couch with wooden legs'
-      borderRadius='lg'
     />
   </CardBody>
+  </Link>
 </Card>
+      
+     
     </Box>
   )
 }
