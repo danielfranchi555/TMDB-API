@@ -1,4 +1,4 @@
-import { Box, Center, Image, WrapItem } from '@chakra-ui/react'
+import { Box, Card, CardBody, Center, Heading, Image, Stack, WrapItem } from '@chakra-ui/react'
 import React from 'react'
 
 const Item = ({movie}) => {
@@ -8,10 +8,16 @@ const Item = ({movie}) => {
   }
 
   return (
-    <Box border='solid' w='200px' h='300px' >
-      {movie.title} 
-      <Image boxSize='100%'
-      objectFit='cover' src={getImage()} alt='Dan Abramov' />
+    <Box  w='200px' h='300px' >
+      <Card maxW='sm'>
+  <CardBody>
+    <Image
+      src={getImage()}
+      alt='Green double couch with wooden legs'
+      borderRadius='lg'
+    />
+  </CardBody>
+</Card>
     </Box>
   )
 }

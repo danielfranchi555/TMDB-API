@@ -12,7 +12,7 @@ const ItemListContainer = () => {
     },[])
 
   return (
-    <Stack border='solid'>  
+    <Stack >  
         <ItemList popularMovies={popularMovies} />
     </Stack>
   )
