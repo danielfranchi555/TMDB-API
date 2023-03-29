@@ -9,8 +9,7 @@ const ImageBanner = ({item}) => {
 
   return (
     <>
-    <Box>
-
+    <Box position='relative'>
   <Image
     boxSize='100%'
     h='auto'
@@ -20,6 +19,7 @@ const ImageBanner = ({item}) => {
     alt='Dan Abramov'
   />    
     </Box>
+
 
   </>
   )

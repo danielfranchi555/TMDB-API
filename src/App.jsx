@@ -3,11 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer"
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import NavBar from "./Components/NavBar/NavBar"
+import Context from "./Components/Context/Context";
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <Context>
+        <BrowserRouter>
     <NavBar/>
      <Routes>
       <Route path="/" element={<ItemListContainer/>}></Route>
@@ -15,6 +17,8 @@ function App() {
      </Routes>
      
     </BrowserRouter>
+    </Context>
+  
   )
 }
 

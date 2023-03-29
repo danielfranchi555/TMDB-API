@@ -1,14 +1,16 @@
 import Slider from 'react-slick';
 import React, { useEffect, useState } from 'react'
-import  {getPopularMoviesUpComming} from '../../query'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import ImageBanner from '../ImageBanner/ImageBanner';
+import { UsarContext } from '../Context/Context';
 const Banner = () => {
 
  const [slider,setSlider] = useState([])
   
+ const {getPopularMoviesUpComming}=UsarContext()
+
  useEffect(()=>{
   getPopularMoviesUpComming(setSlider)
  },[])
