@@ -12,7 +12,7 @@ const Context = ({children}) => {
     try {
         const data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=364d3195439e0a83c0678c267c5bbefe`)
         const resp = await data.json()
-        setPopularMovies(resp.results)
+        setPopularMovies(resp.results)       
         setLoading(false)
     } catch (error) {
          console.log(error)
