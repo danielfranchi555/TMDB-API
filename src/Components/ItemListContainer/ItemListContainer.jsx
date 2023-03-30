@@ -38,9 +38,7 @@ const ItemListContainer = () => {
       ) : (
         <>
           <Banner />
-          <Container maxW={{ base: "450px", md: "1200px" }}>
             <ItemList moviesTop={moviesTop} popularMovies={popularMovies} />
-          </Container>
         </>
       )}
     </>

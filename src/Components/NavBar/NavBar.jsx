@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Image, Input, useDisclosure, Wrap, WrapItem} from '@chakra-ui/react'
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Fade from 'react-reveal/Fade';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -42,8 +43,8 @@ const NavBar = () => {
  const filter = !input ? allMovies : allMovies.filter(movie => movie.title.toLowerCase().includes(input.toLocaleLowerCase()))
 
   return (
-    
-    <Navbar bg="#222831" expand="lg">
+    <Fade top>
+       <Navbar bg="#222831" expand="lg">
     <Container fluid>
       <Navbar.Brand href="/" style={{color:'#ff5722',fontSize:'30px'}}>Movies</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
@@ -102,6 +103,8 @@ const NavBar = () => {
       </Navbar.Collapse>
     </Container>
   </Navbar>
+    </Fade>
+   
    
   )
 }

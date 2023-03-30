@@ -1,7 +1,8 @@
-import { border, Button, Center, Divider, Stack, Switch, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { border, Button, Center, Container, Divider, Stack, Switch, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import React from 'react'
 import Slider from 'react-slick'
 import Item from '../Item/Item'
+import Fade from 'react-reveal/Fade';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 const ItemList = ({popularMovies,moviesTop}) => {
@@ -49,9 +50,9 @@ const ItemList = ({popularMovies,moviesTop}) => {
 
 
   return (
-    <>
+    <Container maxW={{base:'350px',md:'77rem'}}>
      <Stack gap={10} direction='column'>
-
+<Fade>
     <Stack>
         <Text mt='20px' borderLeft='solid #ff5722 2px ' style={{color:'white',fontSize:'20px',padding:'6px'}}> Movies Upcomming</Text>
        <Slider  {...settings}>
@@ -63,8 +64,11 @@ const ItemList = ({popularMovies,moviesTop}) => {
     }
     </Slider>
     </Stack>
+</Fade>
+  
    <Divider/>
-         <Stack>
+ <Fade>
+     <Stack>
          <Text  borderLeft='solid #ff5722 2px ' style={{color:'white',fontSize:'20px',padding:'6px'}}> Popular Movies</Text>
       <Slider  {...settings}>
      {
@@ -74,11 +78,13 @@ const ItemList = ({popularMovies,moviesTop}) => {
     }
     </Slider>
          </Stack>
+ </Fade>
+      
  
     </Stack>
     
 
-    </>
+    </Container>
   
    
   

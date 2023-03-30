@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ImageBanner from '../ImageBanner/ImageBanner';
+import Fade from 'react-reveal/Fade';
+
 import { UsarContext } from '../Context/Context';
 import image from '../../banner.jpg'
 import { Box, Image } from '@chakra-ui/react';
@@ -15,13 +16,14 @@ const Banner = () => {
 
 
   return ( 
-    
-
-         <Image 
+    <Fade>
+        <Image 
          w={{base:'100%',md:'100%'}}
          h={{base:'140px',md:'300px'}}
          objectFit='cover'
          src={image}/>
+    </Fade>
+        
 
  
   )

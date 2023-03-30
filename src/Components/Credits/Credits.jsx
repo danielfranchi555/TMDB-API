@@ -1,4 +1,4 @@
-import { Box, Image } from '@chakra-ui/react'
+import { Box, Heading, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Credits = ({item}) => {
@@ -12,11 +12,13 @@ const Credits = ({item}) => {
     <>
 <Box>
 <Image
-boxSize='100px'
+borderRadius='20px 10px 10px 10px'
+boxSize='120px'
 objectFit='cover'
 src={getProfile()}
 alt='Dan Abramov'
 />
+<Text  color='white'>{item.name}</Text>
 </Box>
    
 </>
