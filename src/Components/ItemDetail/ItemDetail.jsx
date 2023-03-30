@@ -45,7 +45,7 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
         <Stack justify='center' border='solid white'  h={{base:'125vh',md:'80vh'}} sx={basicBoxStyles} >
 
      </Stack>
-    <Container maxW='container.xl'>
+    <Container maxW="container.xl">
         <Stack direction={['column', 'row']} position='absolute' h='350px' top='200px'>
    <Image
     boxSize='250px'
