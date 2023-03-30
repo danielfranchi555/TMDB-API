@@ -1,16 +1,16 @@
-import { border, Center, Stack, Wrap, WrapItem } from '@chakra-ui/react'
+import { border, Button, Center, Stack, Switch, Wrap, WrapItem } from '@chakra-ui/react'
 import React from 'react'
 import Slider from 'react-slick'
 import Item from '../Item/Item'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-const ItemList = ({popularMovies}) => {
+const ItemList = ({popularMovies,moviesTop}) => {
 
   var settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 7,
     slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
@@ -50,10 +50,22 @@ const ItemList = ({popularMovies}) => {
 
   return (
     <>
+     <Stack direction='column'>
+   
+       <Slider  {...settings}>
+     {
+      popularMovies.map((movie)=>(
+      <Item  key={movie.id} movie={movie} />
+      ))
+    }
+    </Slider>
+    </Stack>
+    
+    
     <h1 style={{color:'white',fontSize:'20px'}}>Popular Movies</h1>
       <Slider  {...settings}>
      {
-      popularMovies.map((movie)=>(
+      moviesTop.map((movie)=>(
       <Item  key={movie.id} movie={movie} />
       ))
     }

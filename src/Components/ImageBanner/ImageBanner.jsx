@@ -3,21 +3,13 @@ import React from 'react'
 
 const ImageBanner = ({item}) => {
     const getImages = ()=>{
-        const url = `https://image.tmdb.org/t/p/original/${item.backdrop_path}`
+        const url = `https://image.tmdb.org/t/p/original/${item.poster_path}`
         return url
        }
 
   return (
     <>
-    <Box position='relative'>
-  <Image
-    boxSize='100%'
-    h='auto'
-    position='center'
-    objectFit='cover'
-    src={getImages()}
-    alt='Dan Abramov'
-  />    
+    <Box position='relative' style={{backgroundImage:`url(${getImages()})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',width:'100%'}}  h='700px'>
     </Box>
 
 

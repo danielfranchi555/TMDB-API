@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { Center, Container, Spinner } from '@chakra-ui/react'
+import { Button, Center, Container, Spinner, Stack } from '@chakra-ui/react'
 import Banner from '../Banner/Banner'
 import { UsarContext } from '../Context/Context'
 import ItemList from '../ItemList/ItemList'
 const ItemListContainer = () => {
 
  const [popularMovies,setPopularMovies]= useState([])
+ const [moviesTop,setMoviesTop]= useState([])
 
 
-  const {getPopularMovies,loading} = UsarContext()
+  const {getPopularMovies,getPopularMoviesTopRated,loading} = UsarContext()
 
     useEffect(()=>{
     getPopularMovies(setPopularMovies)
-    },[])
+    getPopularMoviesTopRated(setMoviesTop)
+    },[popularMovies])
 
 
+   
 
+
+   
   return (
     <>  
    {loading? <Center mt='100px'>
@@ -31,8 +36,11 @@ const ItemListContainer = () => {
    <> 
     <Banner/>
    <Container  maxW={{base:'450px',md:'1200px'}}  >
-     
-    <ItemList  popularMovies={popularMovies} />
+   <Stack direction='row'>
+     <Button colorScheme='teal' size='md' variant='outline' >Television</Button>
+     <Button colorScheme='teal' size='md' variant='outline' >Movies</Button>
+      </Stack>
+    <ItemList moviesTop={moviesTop} popularMovies={popularMovies} />
    
     </Container>
    </>

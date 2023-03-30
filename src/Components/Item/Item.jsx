@@ -10,10 +10,10 @@ const Item = ({movie}) => {
 
   return (
      
-    <Box mt='20px' ml='20px'>
+    <Box mt='20px' >
      <Link to={`/detail/${movie.id}`}>   
     <Image
-      w={{base:'150px',md:'200px'}}
+      w={{base:'150px',md:'150px'}}
       borderRadius='lg'
       src={getImage()}
       alt='Green double couch with wooden legs'

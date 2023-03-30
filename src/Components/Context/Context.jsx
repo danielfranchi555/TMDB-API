@@ -5,9 +5,10 @@ export const Contexto = createContext()
 export const UsarContext = ()=> useContext(Contexto)
 
 const Context = ({children}) => {
- 
   const [loading,setLoading] = useState(true)
+ 
 
+  //peticion a las peliculas mas populares
   const getPopularMovies = async (setPopularMovies)=>{
     try {
         const data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=364d3195439e0a83c0678c267c5bbefe`)
@@ -19,6 +20,8 @@ const Context = ({children}) => {
     }
 }
 
+
+  //peticion a las peliculas que se van a estrenar
 const getPopularMoviesUpComming = async (setSlider)=>{
     try {
         const data = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=364d3195439e0a83c0678c267c5bbefe`)
@@ -30,18 +33,23 @@ const getPopularMoviesUpComming = async (setSlider)=>{
     }
 }
 
-const getPopularMoviesTopRated = async (setPopularMovies)=>{
+
+  //peticion a las peliculas que estan en el top
+const getPopularMoviesTopRated = async (setMoviesTop)=>{
   try {
-      const data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=364d3195439e0a83c0678c267c5bbefe`)
+      const data = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=364d3195439e0a83c0678c267c5bbefe&language=en-US&page=1`)
       const resp = await data.json()
-      setPopularMovies(resp.results)       
+      setMoviesTop(resp.results)   
+
       setLoading(false)
+      
   } catch (error) {
        console.log(error)
   }
 }
 
 
+  
 
 
 
@@ -52,7 +60,8 @@ const getPopularMoviesTopRated = async (setPopularMovies)=>{
         setLoading,
         getPopularMovies,
         getPopularMoviesUpComming,
-        getPopularMoviesTopRated
+        getPopularMoviesTopRated,
+        
     }}>
         {children}
     </Contexto.Provider>
