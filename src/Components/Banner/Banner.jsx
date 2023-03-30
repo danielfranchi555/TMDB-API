@@ -14,13 +14,11 @@ const Banner = () => {
 
 
   return ( 
-    <Fade>
         <Image 
          w={{base:'100%',md:'100%'}}
          h={{base:'140px',md:'300px'}}
          objectFit='cover'
          src={image}/>
-    </Fade>
         
 
  
