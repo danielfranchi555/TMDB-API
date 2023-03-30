@@ -51,7 +51,6 @@ const ItemList = ({popularMovies,moviesTop}) => {
   return (
     <>
      <Stack direction='column'>
-   
        <Slider  {...settings}>
      {
       popularMovies.map((movie)=>(

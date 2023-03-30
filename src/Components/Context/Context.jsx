@@ -6,6 +6,8 @@ export const UsarContext = ()=> useContext(Contexto)
 
 const Context = ({children}) => {
   const [loading,setLoading] = useState(true)
+  const [input,setInput] = useState('')
+
  
 
   //peticion a las peliculas mas populares
@@ -61,6 +63,8 @@ const getPopularMoviesTopRated = async (setMoviesTop)=>{
         getPopularMovies,
         getPopularMoviesUpComming,
         getPopularMoviesTopRated,
+        input,
+        setInput
         
     }}>
         {children}

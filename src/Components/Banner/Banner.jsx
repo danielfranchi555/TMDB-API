@@ -15,7 +15,6 @@ const Banner = () => {
   getPopularMoviesUpComming(setSlider)
  },[])
 
- console.log(slider)
 
  const settings = {
   infinite: true,
