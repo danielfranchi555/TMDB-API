@@ -1,7 +1,6 @@
 import { Container, Image, Stack, Text } from '@chakra-ui/react'
 import Slider from "react-slick";
 import React from 'react'
-import Fade from 'react-reveal/Fade';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Recomendation from '../Recomendation/Recomendation'
@@ -43,7 +42,6 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
       }
       console.log(credits)
   return (
-    <Fade>
      <Stack justify='center' border='solid white'  h={{base:'125vh',md:'80vh'}} sx={basicBoxStyles} >
 
      </Stack>
@@ -66,7 +64,6 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
      <Text color='white' fontSize='20px'>{movieDetail.overview}</Text>  
   </Stack>
    </Stack>
-      </Fade>
    
        </Container>
 
