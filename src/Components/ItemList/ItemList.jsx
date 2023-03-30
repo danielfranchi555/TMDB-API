@@ -1,4 +1,4 @@
-import { border, Button, Center, Stack, Switch, Wrap, WrapItem } from '@chakra-ui/react'
+import { border, Button, Center, Divider, Stack, Switch, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import React from 'react'
 import Slider from 'react-slick'
 import Item from '../Item/Item'
@@ -10,7 +10,7 @@ const ItemList = ({popularMovies,moviesTop}) => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 6,
     slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
@@ -50,8 +50,12 @@ const ItemList = ({popularMovies,moviesTop}) => {
 
   return (
     <>
-     <Stack direction='column'>
+     <Stack gap={10} direction='column'>
+
+    <Stack>
+        <Text mt='20px' borderLeft='solid #ff5722 2px ' style={{color:'white',fontSize:'20px',padding:'6px'}}> Movies Upcomming</Text>
        <Slider  {...settings}>
+        
      {
       popularMovies.map((movie)=>(
       <Item  key={movie.id} movie={movie} />
@@ -59,9 +63,9 @@ const ItemList = ({popularMovies,moviesTop}) => {
     }
     </Slider>
     </Stack>
-    
-    
-    <h1 style={{color:'white',fontSize:'20px'}}>Popular Movies</h1>
+   <Divider/>
+         <Stack>
+         <Text  borderLeft='solid #ff5722 2px ' style={{color:'white',fontSize:'20px',padding:'6px'}}> Popular Movies</Text>
       <Slider  {...settings}>
      {
       moviesTop.map((movie)=>(
@@ -69,6 +73,11 @@ const ItemList = ({popularMovies,moviesTop}) => {
       ))
     }
     </Slider>
+         </Stack>
+ 
+    </Stack>
+    
+
     </>
   
    

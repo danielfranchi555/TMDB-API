@@ -11,7 +11,7 @@ const Recomendation = ({recomendation}) => {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 3,
         initialSlide: 0,
         responsive: [
@@ -48,10 +48,12 @@ const Recomendation = ({recomendation}) => {
     
 
   return (
-    <Stack px='50px'   maxW={{base:'390px',md:'70rem'}}>
-        <Text color='white' fontSize='20px'>Recomendaciones</Text>
-        <Slider style={{heigth:'200px'}} {...settings}>
-            {recomendation.map((item)=>(
+    <Stack maxW={{base:'300px',md:'700px'}} ml={{base:'20px',md:'50px'}} >
+      <Stack ml={{base:'19px',md:'19px'}} >
+        <Text color='white'  fontSize='20px'>Recomendaciones</Text>
+      </Stack>
+        <Slider  {...settings}>
+            {!recomendation? <h1> no hay nada </h1> : recomendation.map((item)=>(
                 <CarouselMini item={item}/>
             ))}
         </Slider>

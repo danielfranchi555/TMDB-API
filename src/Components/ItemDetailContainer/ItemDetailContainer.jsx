@@ -7,6 +7,7 @@ const ItemDetailContainer = () => {
 
   const [movieDetail,setMovieDetail]=useState({})
   const [recomendation,setRecomendation]=useState([])
+  const [credits,setCredits]=useState([])
   const [loading,setLoading]=useState(true)
 
   const {id}=useParams()
@@ -17,6 +18,7 @@ const ItemDetailContainer = () => {
     const resp = await data.json()
     setMovieDetail(resp)
     setLoading(false)
+    console.log(resp)
    } catch (error) { 
     console.log(error)
    }
@@ -24,6 +26,16 @@ const ItemDetailContainer = () => {
 
 
 
+  const getCredits = async ()=>{
+    try {
+    const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=364d3195439e0a83c0678c267c5bbefe&language=en-US`)
+    const resp = await data.json()
+    setCredits(resp.cast)
+    console.log(resp.cast)
+    } catch (error) {
+       console.log(error)
+    }
+  }
 
   const getRecommendations = async ()=>{
     try {
@@ -41,6 +53,7 @@ const ItemDetailContainer = () => {
   useEffect(()=>{
   getDetailMovie()
   getRecommendations()
+  getCredits()
   },[])
 
   return (
@@ -54,7 +67,7 @@ const ItemDetailContainer = () => {
   size='xl'
 />
     </Center> :
-          <ItemDetail recomendation={recomendation} movieDetail={movieDetail}/>
+          <ItemDetail credits={credits} recomendation={recomendation} movieDetail={movieDetail}/>
 
   }
     </>

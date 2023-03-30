@@ -5,10 +5,11 @@ export const Contexto = createContext()
 export const UsarContext = ()=> useContext(Contexto)
 
 const Context = ({children}) => {
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [moviesTop, setMoviesTop] = useState([]);
   const [loading,setLoading] = useState(true)
-  const [input,setInput] = useState('')
 
- 
+  const allMovies = popularMovies.concat(moviesTop)
 
   //peticion a las peliculas mas populares
   const getPopularMovies = async (setPopularMovies)=>{
@@ -51,10 +52,6 @@ const getPopularMoviesTopRated = async (setMoviesTop)=>{
 }
 
 
-  
-
-
-
 
   return (
     <Contexto.Provider value={{
@@ -63,8 +60,11 @@ const getPopularMoviesTopRated = async (setMoviesTop)=>{
         getPopularMovies,
         getPopularMoviesUpComming,
         getPopularMoviesTopRated,
-        input,
-        setInput
+        popularMovies,
+        moviesTop,
+        setPopularMovies,
+        setMoviesTop,
+        allMovies
         
     }}>
         {children}

@@ -1,4 +1,5 @@
 import { Box, Image } from '@chakra-ui/react'
+import Carousel from 'react-bootstrap/Carousel';
 import React from 'react'
 
 const ImageBanner = ({item}) => {
@@ -8,12 +9,20 @@ const ImageBanner = ({item}) => {
        }
 
   return (
-    <>
-    <Box position='relative' style={{backgroundImage:`url(${getImages()})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',width:'100%'}}  h='700px'>
-    </Box>
+   
+   <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={getImages()}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
 
 
-  </>
   )
 }
 
