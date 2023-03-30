@@ -4,7 +4,7 @@ import React from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Recomendation from '../Recomendation/Recomendation'
-import CarouselCredits from '../CarouselCredits/CarouselCredits';
+import Credits from '../Credits/Credits';
 const ItemDetail = ({movieDetail,recomendation,credits}) => {
 
   const settings = {
@@ -77,7 +77,7 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
               <Text fontSize='20px' color='white'>Credits</Text>
                 <Slider {...settings}>
                {credits.map((item)=>(
-              <CarouselCredits item={item}/>             
+              <Credits item={item}/>           
              ))}
             </Slider> 
             </Stack>
