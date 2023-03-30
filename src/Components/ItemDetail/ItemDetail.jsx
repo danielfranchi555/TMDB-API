@@ -58,18 +58,14 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
   <Stack >
      <Text color='white' fontSize='27px'>
       {movieDetail.title}-({movieDetail.release_date})
-      <Stack  direction='row' color='white' fontSize='15px'>  {movieDetail.genres.map((item)=>  <Text fontWeight='700'>{item.name}</Text> )}</Stack>
+      <Stack  direction='row' color='white' fontSize='15px'>  {movieDetail.genres.map? <p>no hay</p> : ((item)=>  <Text fontWeight='700'>{item.name}</Text> )}</Stack>
       </Text>
      <Text color='white' fontSize='20px'>{movieDetail.overview}</Text>  
   </Stack>
    </Stack>
-   
        </Container>
-    </>
- 
-  
-
-/*  <Container maxW='container.xl'>
+       
+ <Container maxW='container.xl'>
 
     <Stack width='700px' h='auto'>
       <div className='container' >
@@ -82,7 +78,11 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
       </div>
              
             </Stack>
-</Container> */
+</Container> 
+    </>
+ 
+  
+
     
 
    
