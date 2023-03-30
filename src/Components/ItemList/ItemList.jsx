@@ -64,7 +64,6 @@ const ItemList = ({popularMovies,moviesTop}) => {
     </Stack>
   
    <Divider/>
- <Fade>
      <Stack>
          <Text  borderLeft='solid #ff5722 2px ' style={{color:'white',fontSize:'20px',padding:'6px'}}> Popular Movies</Text>
       <Slider  {...settings}>
@@ -75,7 +74,6 @@ const ItemList = ({popularMovies,moviesTop}) => {
     }
     </Slider>
          </Stack>
- </Fade>
       
  
     </Stack>
