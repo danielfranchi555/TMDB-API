@@ -3,6 +3,7 @@ import {
   Button,
   Center,
   Container,
+  Image,
   Input,
   Modal,
   ModalBody,
@@ -14,6 +15,8 @@ import {
   Spinner,
   Stack,
   useDisclosure,
+  Wrap,
+  WrapItem,
 
 } from "@chakra-ui/react";
 import Banner from "../Banner/Banner";
@@ -26,7 +29,7 @@ const ItemListContainer = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [moviesTop, setMoviesTop] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [size, setSize] = useState('md')
+  const [size, setSize] = useState('xl')
   const allMovies = popularMovies.concat(moviesTop)
   console.log(allMovies)
 
@@ -36,6 +39,7 @@ const ItemListContainer = () => {
   }
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
 
+  
   const { getPopularMovies, getPopularMoviesTopRated,loading,input,setInput} = UsarContext();
 
   useEffect(() => {
@@ -56,7 +60,10 @@ const ItemListContainer = () => {
     e.preventDefault();
   };
 
-  
+  const getImage = (poster_path)=>{
+   const url = `https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path}`
+   return url
+  }
 
   return (
     <>
@@ -79,14 +86,13 @@ const ItemListContainer = () => {
           onClick={() => handleSizeClick(size)}
           key={size}
           m={4}
-        > Click To Search</Button>
-
-<Modal onClose={onClose} size={size} isOpen={isOpen}>
+        >  Search</Button>
+        <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent >
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody w='500px'>
           <form onSubmit={handleSubmit}>
             <Input
               onChange={handleChange}
@@ -97,12 +103,22 @@ const ItemListContainer = () => {
             />
             <Button type="submit">enviar</Button>
           </form>
-           {filter.map((item)=>(
-            <p>
-              {item.title}
-            </p>
+           <Wrap h='auto' mt='10px'>
+            {filter.map((item)=>(
+              <WrapItem>
+             <Center w='140px' h='auto' bg='red.200'>
+             <Image
+              boxSize='auto'
+              objectFit='cover'
+              src={getImage(item.poster_path)}
+            />
+             </Center>
+           </WrapItem>
+            ))}
             
-           ))}
+         </Wrap>
+
+
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
