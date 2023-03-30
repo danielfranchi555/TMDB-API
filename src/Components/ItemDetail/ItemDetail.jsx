@@ -4,15 +4,16 @@ import React from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Credits from '../Credits/Credits';
-const ItemDetail = ({movieDetail,recomendation,credits}) => {
+const ItemDetail = ({movieDetail,credits}) => {
 
   const settings = {
     className: "center",
-    infinite: true,
-    centerPadding: "60px",
+    dots: true,
+    infinite: false,
+    speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 4,
-    swipeToSlide: true,
+    slidesToScroll: 3,
+    initialSlide: 0,
     afterChange: function(index) {
       console.log(
         `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
