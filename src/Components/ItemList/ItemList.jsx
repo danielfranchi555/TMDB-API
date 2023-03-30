@@ -1,4 +1,4 @@
-import { border, Button, Center, Container, Divider, Stack, Switch, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Container, Divider, Stack,  Text,  } from '@chakra-ui/react'
 import React from 'react'
 import Slider from 'react-slick'
 import Item from '../Item/Item'

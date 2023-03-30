@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Center, Container, Input, Spinner } from "@chakra-ui/react";
+import { Center, Input, Spinner } from "@chakra-ui/react";
 import Banner from "../Banner/Banner";
 import { UsarContext } from "../Context/Context";
 import ItemList from "../ItemList/ItemList";
