@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Fade from 'react-reveal/Fade';
-
 import { UsarContext } from '../Context/Context';
 import image from '../../banner.jpg'
 import { Box, Image } from '@chakra-ui/react';
