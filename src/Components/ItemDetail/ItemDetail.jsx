@@ -11,6 +11,7 @@ const ItemDetail = ({movieDetail,recomendation,credits}) => {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 5,
+    slidesToScroll: 4,
     swipeToSlide: true,
     afterChange: function(index) {
       console.log(
