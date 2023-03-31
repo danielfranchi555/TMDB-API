@@ -7,12 +7,13 @@ export const UsarContext = ()=> useContext(Contexto)
 const Context = ({children}) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [moviesTop, setMoviesTop] = useState([]);
+  const [tv, setTv] = useState([]);
   const [loading,setLoading] = useState(true)
 
   const allMovies = popularMovies.concat(moviesTop)
 
   //peticion a las peliculas mas populares
-  const getPopularMovies = async (setPopularMovies)=>{
+  const getPopularMovies = async ()=>{
     try {
         const data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=364d3195439e0a83c0678c267c5bbefe`)
         const resp = await data.json()
@@ -38,7 +39,7 @@ const getPopularMoviesUpComming = async (setSlider)=>{
 
 
   //peticion a las peliculas que estan en el top
-const getPopularMoviesTopRated = async (setMoviesTop)=>{
+const getPopularMoviesTopRated = async ()=>{
   try {
       const data = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=364d3195439e0a83c0678c267c5bbefe&language=en-US&page=1`)
       const resp = await data.json()
@@ -53,6 +54,8 @@ const getPopularMoviesTopRated = async (setMoviesTop)=>{
 
 
 
+
+
   return (
     <Contexto.Provider value={{
         loading,
@@ -64,7 +67,7 @@ const getPopularMoviesTopRated = async (setMoviesTop)=>{
         moviesTop,
         setPopularMovies,
         setMoviesTop,
-        allMovies
+        allMovies,
         
     }}>
         {children}

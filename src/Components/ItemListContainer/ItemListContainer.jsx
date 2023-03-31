@@ -11,13 +11,11 @@ const ItemListContainer = () => {
     loading,
     moviesTop,
     popularMovies,
-    setMoviesTop,
-    setPopularMovies,
   } = UsarContext();
 
   useEffect(() => {
-    getPopularMovies(setPopularMovies);
-    getPopularMoviesTopRated(setMoviesTop);
+    getPopularMovies();
+    getPopularMoviesTopRated();
   }, []);
 
 
@@ -38,7 +36,7 @@ const ItemListContainer = () => {
       ) : (
         <>
           <Banner />
-            <ItemList moviesTop={moviesTop} popularMovies={popularMovies} />
+            <ItemList  moviesTop={moviesTop} popularMovies={popularMovies} />
         </>
       )}
     </>

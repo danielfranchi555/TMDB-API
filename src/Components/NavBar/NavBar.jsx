@@ -52,7 +52,10 @@ const NavBar = () => {
         >
         </Nav>
       <Button 
-          className="me"onClick={() => handleClick(size)}
+          border='solid 1px #ff5722'
+          color='white'
+          variant='outline'
+          onClick={() => handleClick(size)}
           key={size}
           m={4}
         >Search</Button>
@@ -61,7 +64,7 @@ const NavBar = () => {
 <DrawerOverlay />
 <DrawerContent>
   <DrawerCloseButton />
-  <DrawerHeader>{`${size} drawer contents`}</DrawerHeader>
+  <DrawerHeader></DrawerHeader>
   <DrawerBody>
   <form onSubmit={handleSubmit}>
       <Input

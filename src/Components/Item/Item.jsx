@@ -22,18 +22,13 @@ const Item = ({movie}) => {
     <Stack mt='6' spacing='3'>
       <Center>
 
-      <Heading size='xs' color='#eeeeee'>{movie.title}</Heading>
+      <Heading size='xs' color='#eeeeee'>{movie.name || movie.title}</Heading>
       </Center>
     </Stack>
   </CardBody>
 
 </Card>
-  {/*   <Image
-      w={{base:'150px',md:'150px'}}
-      borderRadius='lg'
-      src={getImage()}
-      alt='Green double couch with wooden legs'
-    /> */}
+ 
   </Link>
       
      

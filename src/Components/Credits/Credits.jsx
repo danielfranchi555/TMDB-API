@@ -10,15 +10,14 @@ const Credits = ({item}) => {
 
   return (
     <>
-<Box>
+<Box w={{base:'80px',md:'auto'}} h={{base:'150',md:'auto'}}  >
 <Image
-borderRadius='20px 10px 10px 10px'
-boxSize='120px'
-objectFit='cover'
+borderRadius='20px '
+w={{base:'200px',md:'110px'}}
+objectFit='contain'
 src={getProfile()}
-alt='Dan Abramov'
 />
-<Text  color='white'>{item.name}</Text>
+<Text  color='white' fontSize={{base:'13px'}}>{item.name}</Text>
 </Box>
    
 </>

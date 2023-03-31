@@ -4,6 +4,7 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import NavBar from "./Components/NavBar/NavBar"
 import Context from "./Components/Context/Context";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
       <Route path="/" element={<ItemListContainer/>}></Route>
       <Route path="/detail/:id" element={<ItemDetailContainer/>}></Route>
      </Routes>
-     
+     <Footer/>
     </BrowserRouter>
     </Context>
   

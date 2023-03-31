@@ -1,4 +1,4 @@
-import { Container, Image, Stack, Text } from '@chakra-ui/react'
+import { Badge, Center, Container, Image, Stack, Tag, Text } from '@chakra-ui/react'
 import Slider from "react-slick";
 import React from 'react'
 import "slick-carousel/slick/slick.css"; 
@@ -8,17 +8,39 @@ const ItemDetail = ({movieDetail,credits}) => {
 
   const settings = {
     className: "center",
-    dots: true,
-    infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 3,
     initialSlide: 0,
-    afterChange: function(index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-      );
-    }
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        initialSlide: 0,                                    
+
+        }
+      }
+    ]
   };
 
 
@@ -44,43 +66,48 @@ const ItemDetail = ({movieDetail,credits}) => {
       console.log(credits)
   return (
     <>
-        <Stack justify='center' border='solid white'  h={{base:'125vh',md:'80vh'}} sx={basicBoxStyles} >
+        <Stack justify='center' border='solid white'  h={{base:'125vh',md:'95vh'}} sx={basicBoxStyles} >
 
      </Stack>
-    <Container maxW="container.xl">
-        <Stack direction={['column', 'row']} position='absolute' h='350px' top='200px'>
-   <Image
-    boxSize='250px'
-    h='100%'
-    objectFit='cover'
+    <Container maxW="container.xl"  >
+        <Stack direction={['column', 'row']} position='absolute'  h='450px' top='170px'>
+               <Image
+    boxSize={{base:'290px',md:'auto'}}
+    m={{base:'auto',md:'0px'}}
+    p={{base:'0px',md:'5px'}}
+    objectFit='contain'
     src={getImage()}
     alt='Dan Abramov'
   />
+
   
   <Stack >
-     <Text color='white' fontSize='27px'>
-      {movieDetail.title}-({movieDetail.release_date})
-      <Stack  direction='row' color='white' fontSize='15px'>  {!movieDetail.genres? <p>no hay</p> : movieDetail.genres.map((item)=>  <Text fontWeight='700'>{item.name}</Text> )}</Stack>
+    <Container maxW={{base:'auto',md:'auto'}} >
+        <Text  color='white' fontWeight='700' fontSize='27px'>
+      {movieDetail.title }-({movieDetail.release_date})
+      <Stack  direction='row' color='white' fontSize='12px'>  {!movieDetail.genres? <p>no hay</p> : movieDetail.genres.map((item)=>  <Tag size='md' color='white' variant='outline' border='solid 1px orange' >
+      {item.name}
+    </Tag> )}</Stack>
       </Text>
      <Text color='white' fontSize='20px'>{movieDetail.overview}</Text>  
-  </Stack>
-   </Stack>
-       </Container>
-       
- <Container maxW='container.xl'>
-
-    <Stack width='700px' h='auto'>
-      <div className='container' >
-         <Text fontSize='20px' color='white'>Credits</Text>
+         <Stack  width={{base:'300px',md:'700px'}} h='auto'>
+         <Tag  width='65px' size='md' color='black'  border='solid 1px orange'> Credits </Tag>
                 <Slider {...settings}>
                {credits.map((item)=>(
               <Credits item={item}/>           
              ))}
             </Slider> 
-      </div>
              
             </Stack>
-</Container> 
+    </Container>
+   
+ 
+  </Stack>
+   </Stack>
+   
+       </Container>
+       
+
     </>
  
   

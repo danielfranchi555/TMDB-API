@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import Item from '../Item/Item'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-const ItemList = ({popularMovies,moviesTop}) => {
+const ItemList = ({popularMovies,moviesTop,}) => {
 
   var settings = {
     dots: true,
@@ -75,6 +75,8 @@ const ItemList = ({popularMovies,moviesTop}) => {
     </Slider>
          </Stack>
       
+         <Divider/>
+  
  
     </Stack>
     
