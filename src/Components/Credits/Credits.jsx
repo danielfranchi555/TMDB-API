@@ -10,7 +10,7 @@ const Credits = ({item}) => {
 
   return (
     <>
-<Box w={{base:'80px',md:'auto'}} h={{base:'150',md:'auto'}}  >
+<Box w={{base:'80px',md:'90px'}}  h={{base:'150',md:'150px'}}  >
 <Image
 borderRadius='20px '
 w={{base:'200px',md:'110px'}}

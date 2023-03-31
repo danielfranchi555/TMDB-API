@@ -1,15 +1,36 @@
-import { Badge, Button, Center, Container, Image, Stack, Tag, Text } from '@chakra-ui/react'
+import {  Button,  Center,  Container, Image, Stack, Tag, Text, background } from '@chakra-ui/react'
 import Slider from "react-slick";
-import React from 'react'
+import React, { useEffect,useState } from 'react'
+import Youtube from 'react-youtube'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Credits from '../Credits/Credits';
-const ItemDetail = ({movieDetail,credits}) => {
+const ItemDetail = ({movieDetail,credits,id}) => {
+
+  const [trailer,setTrailer]=useState([])
+
+  const getTrailer = async ()=>{
+    const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=364d3195439e0a83c0678c267c5bbefe&append_to_response=videos`)
+    const resp = await data.json()
+    setTrailer(resp.videos.results)
+    console.log(trailer)
+  }
+
+
+
+  const oficialTrailer = trailer.find(movie => movie.name === 'Official Trailer')
+   
+   const key = oficialTrailer? oficialTrailer.key : null
+
+ 
+  
+ 
+
 
   const settings = {
     className: "center",
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
@@ -55,21 +76,40 @@ const ItemDetail = ({movieDetail,credits}) => {
         return url
     }
 
-    const basicBoxStyles = {
+  /*   const basicBoxStyles = {
         position:'relative',
         widht:'100%',
         filter:'auto',
-        brightness:'30%',
+        brightness:'50%',
         background:
          `url(${getImageBg()}) center/cover no-repeat`,
-      }
+      } */
+
+
+     
+
+      useEffect(()=>{
+       getTrailer()
+      },[])
+
+      const opts = {
+        height:'400px',
+        width:'100%',
+        playerVars: {
+          autoplay: 1,
+        },
+      };
+    
   return (
     <>
-        <Stack justify='center' border='solid white'  h={{base:'145vh',md:'95vh'}} sx={basicBoxStyles} >
+       {/*  <Stack justify='center'   h={{base:'145vh',md:'100vh'}} sx={basicBoxStyles} >
 
-     </Stack>
-    <Container maxW="container.xl"  >
-        <Stack direction={['column', 'row']} position='absolute'  h='450px' top='170px'>
+     </Stack> */}
+
+    <Stack  width={{base:'100%',md:'100%'}} h={{base:'auto',md:'400px'}}>
+         <Youtube opts={opts} videoId={key}></Youtube>
+            </Stack> 
+        <Stack mt='20px'  direction={['column', 'row']}   h='auto' top='170px'>
                <Image
     boxSize={{base:'290px',md:'auto'}}
     m={{base:'auto',md:'0px'}}
@@ -78,35 +118,29 @@ const ItemDetail = ({movieDetail,credits}) => {
     src={getImage()}
     alt='Dan Abramov'
   />
-
-  
-  <Stack >
-    <Container maxW={{base:'auto',md:'auto'}} >
-        <Text  color='white' fontWeight='700' fontSize='27px'>
+    <Stack>
+     
+           <Text     m={{base:'auto',md:'0px'}}
+  color='white' fontWeight='700' fontSize='27px'>
       {movieDetail.title }-({movieDetail.release_date})
       <Stack  direction='row' color='white' fontSize='12px'>  {!movieDetail.genres? <p>no hay</p> : movieDetail.genres.map((item)=>  <Tag size='md' color='white' variant='outline' border='solid 1px orange' >
       {item.name}
     </Tag> )}</Stack>
       </Text>
-     <Text color='white' fontSize='20px'>{movieDetail.overview}</Text>  
-         <Stack  width={{base:'300px',md:'700px'}} h='auto'>
-         <Tag  width='65px' size='md' color='white' variant='outline' border='solid 1px orange'> Credits </Tag>
-                <Slider {...settings}>
+     
+      <Stack>
+     <Text color='white' fontSize='15px'>{movieDetail.overview}</Text>  
+      </Stack>
+     <Stack w='500px'  h='250px'>
+      <Tag mt='30px' w='62px' color='white' variant='outline' border='solid 1px orange'> <Center> credits</Center> </Tag>
+       <Slider {...settings}>
                {credits.map((item)=>(
               <Credits item={item}/>           
              ))}
-            </Slider> 
-            </Stack>
-            <Button >ver trailer</Button>
-    </Container>
-   
- 
-  </Stack>
+            </Slider>
+     </Stack>
+    </Stack>
    </Stack>
-   
-       </Container>
-       
-
     </>
  
   

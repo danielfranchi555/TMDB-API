@@ -8,7 +8,6 @@ const ItemDetailContainer = () => {
   const [movieDetail,setMovieDetail]=useState({})
   const [recomendation,setRecomendation]=useState([])
   const [credits,setCredits]=useState([])
-  const [trailer,setTrailer]=useState([])
   const [loading,setLoading]=useState(true)
 
   const {id}=useParams()
@@ -47,25 +46,10 @@ const ItemDetailContainer = () => {
     }
   }
 
-  const getTrailer = async ()=>{
-    const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=364d3195439e0a83c0678c267c5bbefe&append_to_response=videos`)
-    const resp = await data.json()
-    setTrailer(resp.videos.results)
-    console.log(trailer)
-  }
-
-
-  console.log(trailer)
-
-  const filter = trailer.find(movie => movie.name === 'Official Trailer') 
-
-  console.log(filter)
-
   useEffect(()=>{
   getDetailMovie()
   getRecommendations()
   getCredits()
-  getTrailer()
   },[])
 
   return (
@@ -79,7 +63,7 @@ const ItemDetailContainer = () => {
   size='xl'
 />
     </Center> :
-          <ItemDetail credits={credits} recomendation={recomendation} movieDetail={movieDetail}/>
+          <ItemDetail id={id}  credits={credits} recomendation={recomendation} movieDetail={movieDetail}/>
 
   }
     </>

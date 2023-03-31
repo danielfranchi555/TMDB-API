@@ -41,7 +41,7 @@ const NavBar = () => {
 
   return (
        <Navbar bg="#222831" expand="lg">
-    <Container fluid>
+    <Container >
       <Navbar.Brand href="/" style={{color:'#ff5722',fontSize:'30px'}}>Movies</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
