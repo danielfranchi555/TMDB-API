@@ -66,7 +66,7 @@ const ItemDetail = ({movieDetail,credits}) => {
       console.log(credits)
   return (
     <>
-        <Stack justify='center' border='solid white'  h={{base:'125vh',md:'95vh'}} sx={basicBoxStyles} >
+        <Stack justify='center' border='solid white'  h={{base:'145vh',md:'95vh'}} sx={basicBoxStyles} >
 
      </Stack>
     <Container maxW="container.xl"  >
@@ -91,7 +91,7 @@ const ItemDetail = ({movieDetail,credits}) => {
       </Text>
      <Text color='white' fontSize='20px'>{movieDetail.overview}</Text>  
          <Stack  width={{base:'300px',md:'700px'}} h='auto'>
-         <Tag  width='65px' size='md' color='black'  border='solid 1px orange'> Credits </Tag>
+         <Tag  width='65px' size='md' color='white' variant='outline' border='solid 1px orange'> Credits </Tag>
                 <Slider {...settings}>
                {credits.map((item)=>(
               <Credits item={item}/>           
