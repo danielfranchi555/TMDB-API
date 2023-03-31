@@ -1,4 +1,4 @@
-import {  Button,  Center,  Container, Image, Stack, Tag, Text, background } from '@chakra-ui/react'
+import {  Box, Button,  Center,  Container, Image, Stack, Tag, Text, background } from '@chakra-ui/react'
 import Slider from "react-slick";
 import React, { useEffect,useState } from 'react'
 import Youtube from 'react-youtube'
@@ -28,7 +28,6 @@ const ItemDetail = ({movieDetail,credits,id}) => {
 
 
   const settings = {
-    className: "center",
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 3,
@@ -55,7 +54,7 @@ const ItemDetail = ({movieDetail,credits,id}) => {
         settings: {
         infinite: false,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 2,
         initialSlide: 0,                                    
 
@@ -76,18 +75,6 @@ const ItemDetail = ({movieDetail,credits,id}) => {
         return url
     }
 
-  /*   const basicBoxStyles = {
-        position:'relative',
-        widht:'100%',
-        filter:'auto',
-        brightness:'50%',
-        background:
-         `url(${getImageBg()}) center/cover no-repeat`,
-      } */
-
-
-     
-
       useEffect(()=>{
        getTrailer()
       },[])
@@ -102,26 +89,27 @@ const ItemDetail = ({movieDetail,credits,id}) => {
     
   return (
     <>
-       {/*  <Stack justify='center'   h={{base:'145vh',md:'100vh'}} sx={basicBoxStyles} >
-
-     </Stack> */}
-
-    <Stack  width={{base:'100%',md:'100%'}} h={{base:'auto',md:'400px'}}>
+    <Stack  width={{base:'100%',md:'100%'}} h={{base:'auto',md:'auto'}}>
          <Youtube opts={opts} videoId={key}></Youtube>
             </Stack> 
-        <Stack mt='20px'  direction={['column', 'row']}   h='auto' top='170px'>
+
+
+     <Stack position='realitve'  style={ {border:'solid',filter:'brightness(50%)', backgroundImage:`url(${getImageBg()})`,height:'80vh',width:'100%',marginTop:'20px',backgroundSize:'cover'}}>
+
+     </Stack>
+
+        <Stack position='absolute'   direction={['column', 'row']} top='524px'   >
                <Image
-    boxSize={{base:'290px',md:'auto'}}
+    boxSize={{base:'290px',md:'450px'}}
     m={{base:'auto',md:'0px'}}
     p={{base:'0px',md:'5px'}}
     objectFit='contain'
     src={getImage()}
     alt='Dan Abramov'
   />
-    <Stack>
-     
-           <Text     m={{base:'auto',md:'0px'}}
-  color='white' fontWeight='700' fontSize='27px'>
+    <Stack  w={{base:'500px',md:'600px'}}>
+           <Text   
+      color='white' fontWeight='700' fontSize={{base:'17px',md:'25px'}}>
       {movieDetail.title }-({movieDetail.release_date})
       <Stack  direction='row' color='white' fontSize='12px'>  {!movieDetail.genres? <p>no hay</p> : movieDetail.genres.map((item)=>  <Tag size='md' color='white' variant='outline' border='solid 1px orange' >
       {item.name}
@@ -129,15 +117,18 @@ const ItemDetail = ({movieDetail,credits,id}) => {
       </Text>
      
       <Stack>
-     <Text color='white' fontSize='15px'>{movieDetail.overview}</Text>  
+     <Box color='white' mt='0px' w={{base:'400px',md:'100%'}} fontSize={{base:'18px',md:'19px'}}>  {movieDetail.overview}</Box>  
       </Stack>
-     <Stack w='500px'  h='250px'>
-      <Tag mt='30px' w='62px' color='white' variant='outline' border='solid 1px orange'> <Center> credits</Center> </Tag>
-       <Slider {...settings}>
+     <Stack  w={{base:'350px',md:'500px'}} ml={{base:'20px',md:'300px'}} h='250px'>
+      <Tag mt='10px' w='62px' color='white' variant='outline' border='solid 1px orange'> credits </Tag>
+      <Stack >
+          <Slider {...settings}>
                {credits.map((item)=>(
               <Credits item={item}/>           
              ))}
             </Slider>
+      </Stack>
+     
      </Stack>
     </Stack>
    </Stack>
