@@ -1,4 +1,4 @@
-import { Badge, Center, Container, Image, Stack, Tag, Text } from '@chakra-ui/react'
+import { Badge, Button, Center, Container, Image, Stack, Tag, Text } from '@chakra-ui/react'
 import Slider from "react-slick";
 import React from 'react'
 import "slick-carousel/slick/slick.css"; 
@@ -63,7 +63,6 @@ const ItemDetail = ({movieDetail,credits}) => {
         background:
          `url(${getImageBg()}) center/cover no-repeat`,
       }
-      console.log(credits)
   return (
     <>
         <Stack justify='center' border='solid white'  h={{base:'145vh',md:'95vh'}} sx={basicBoxStyles} >
@@ -97,8 +96,8 @@ const ItemDetail = ({movieDetail,credits}) => {
               <Credits item={item}/>           
              ))}
             </Slider> 
-             
             </Stack>
+            <Button >ver trailer</Button>
     </Container>
    
  

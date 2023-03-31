@@ -8,6 +8,7 @@ const ItemDetailContainer = () => {
   const [movieDetail,setMovieDetail]=useState({})
   const [recomendation,setRecomendation]=useState([])
   const [credits,setCredits]=useState([])
+  const [trailer,setTrailer]=useState([])
   const [loading,setLoading]=useState(true)
 
   const {id}=useParams()
@@ -18,7 +19,6 @@ const ItemDetailContainer = () => {
     const resp = await data.json()
     setMovieDetail(resp)
     setLoading(false)
-    console.log(resp)
    } catch (error) { 
     console.log(error)
    }
@@ -31,7 +31,6 @@ const ItemDetailContainer = () => {
     const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=364d3195439e0a83c0678c267c5bbefe&language=en-US`)
     const resp = await data.json()
     setCredits(resp.cast)
-    console.log(resp.cast)
     } catch (error) {
        console.log(error)
     }
@@ -48,12 +47,25 @@ const ItemDetailContainer = () => {
     }
   }
 
-  console.log(recomendation)
+  const getTrailer = async ()=>{
+    const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=364d3195439e0a83c0678c267c5bbefe&append_to_response=videos`)
+    const resp = await data.json()
+    setTrailer(resp.videos.results)
+    console.log(trailer)
+  }
+
+
+  console.log(trailer)
+
+  const filter = trailer.find(movie => movie.name === 'Official Trailer') 
+
+  console.log(filter)
 
   useEffect(()=>{
   getDetailMovie()
   getRecommendations()
   getCredits()
+  getTrailer()
   },[])
 
   return (
