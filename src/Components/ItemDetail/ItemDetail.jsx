@@ -18,7 +18,7 @@ const ItemDetail = ({movieDetail,credits,id}) => {
 
 
 
-  const oficialTrailer = trailer.find(movie => movie.name === 'Official Trailer')
+  const oficialTrailer = !trailer? <p>no hay trailer</p>:trailer.find(movie => movie.name === 'Official Trailer')
    
    const key = oficialTrailer? oficialTrailer.key : null
 
@@ -94,12 +94,12 @@ const ItemDetail = ({movieDetail,credits,id}) => {
             </Stack> 
 
 
-     <Stack position='realitve'  style={ {border:'solid',filter:'brightness(50%)', backgroundImage:`url(${getImageBg()})`,height:'80vh',width:'100%',marginTop:'20px',backgroundSize:'cover'}}>
-
+     <Stack position='realitve'  style={ {filter:'brightness(30%)', backgroundImage:`url(${getImageBg()})`,height:'90vh',width:'100%',marginTop:'20px',backgroundSize:'cover'}}>
      </Stack>
 
-        <Stack position='absolute'   direction={['column', 'row']} top='524px'   >
+        <Stack position='absolute' direction={['column', 'row']} top='524px'   >
                <Image
+               
     boxSize={{base:'290px',md:'450px'}}
     m={{base:'auto',md:'0px'}}
     p={{base:'0px',md:'5px'}}
@@ -107,7 +107,7 @@ const ItemDetail = ({movieDetail,credits,id}) => {
     src={getImage()}
     alt='Dan Abramov'
   />
-    <Stack  w={{base:'500px',md:'600px'}}>
+    <Stack  h={{base:'50px',md:'450px'}} w={{base:'500px',md:'600px'}}>
            <Text   
       color='white' fontWeight='700' fontSize={{base:'17px',md:'25px'}}>
       {movieDetail.title }-({movieDetail.release_date})
@@ -117,10 +117,10 @@ const ItemDetail = ({movieDetail,credits,id}) => {
       </Text>
      
       <Stack>
-     <Box color='white' mt='0px' w={{base:'400px',md:'100%'}} fontSize={{base:'18px',md:'19px'}}>  {movieDetail.overview}</Box>  
+     <Box color='white' mt='0px' w={{base:'400px',md:'100%'}} fontSize={{base:'18px',md:'16px'}}>  {movieDetail.overview}</Box>  
       </Stack>
      <Stack  w={{base:'350px',md:'500px'}} ml={{base:'20px',md:'300px'}} h='250px'>
-      <Tag mt='10px' w='62px' color='white' variant='outline' border='solid 1px orange'> credits </Tag>
+      <Tag mt='10px' w='62px' color='white' variant='outline' border='solid 1px orange'> Credits </Tag>
       <Stack >
           <Slider {...settings}>
                {credits.map((item)=>(
