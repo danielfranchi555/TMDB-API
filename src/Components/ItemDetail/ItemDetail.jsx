@@ -94,12 +94,11 @@ const ItemDetail = ({movieDetail,credits,id}) => {
             </Stack> 
 
 
-     <Stack position='realitve'  style={ {filter:'brightness(30%)', backgroundImage:`url(${getImageBg()})`,height:'90vh',width:'100%',marginTop:'20px',backgroundSize:'cover'}}>
+     <Stack position='realitve'  style={ {filter:'brightness(30%)', backgroundImage:`url(${getImageBg()})`,height:'90vh',width:'100%',backgroundSize:'cover'}}>
      </Stack>
 
-        <Stack position='absolute' direction={['column', 'row']} top='524px'   >
+        <Stack   position='absolute' direction={['column', 'row']} top='524px'   >
                <Image
-               
     boxSize={{base:'290px',md:'450px'}}
     m={{base:'auto',md:'0px'}}
     p={{base:'0px',md:'5px'}}

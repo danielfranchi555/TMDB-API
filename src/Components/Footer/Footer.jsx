@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-        <Stack bg='#393e46' h='70px' justify='center' align='center' direction='row'>
+        <Stack bg='black' h='70px' justify='center' align='center' direction='row'>
         <p style={{color:'white'}}>©2023 Created by <span style={{color:'#ff5722'}} >DanielFranchi</span></p>
         </Stack>
   )
